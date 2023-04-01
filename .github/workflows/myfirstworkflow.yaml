@@ -18,3 +18,17 @@ jobs:
                   echo "Please let me leaaave" >> newFile.yaml
                   cat newFile.yaml
                   pwd
+    mysecondjob:
+                needs: [myfirstjob]
+                name: Second job
+                runs-on: macos-latest
+                steps:
+                  - name: Step one
+                  - run: date
+    mythirdjob:
+                needs: [myfirstjob]
+                name: Third job
+                runs-on: windows-latest
+                steps:
+                  - name: Step one
+                  - run: date
