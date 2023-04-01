@@ -24,10 +24,10 @@ jobs:
                 runs-on: macos-latest
                 steps:
                   - name: Step one
-                  - run: date
+                    run: date
     mythirdjob:
                 name: Third job
                 runs-on: windows-latest
                 steps:
                   - name: Step one
-                  - run: date
+                    run: date
