@@ -26,7 +26,6 @@ jobs:
                   - name: Step one
                   - run: date
     mythirdjob:
-                needs: [myfirstjob]
                 name: Third job
                 runs-on: windows-latest
                 steps:
