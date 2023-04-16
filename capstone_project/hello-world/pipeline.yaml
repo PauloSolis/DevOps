@@ -1,0 +1,27 @@
+name build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  build:
+
+    runs-on ubuntu-latest:
+
+    steps:
+    - uses: actionscheckout@v3
+
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.13.1
+    - run: cd capstone_project/hello-world/
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+
+    - name: Build docker image if test success
+      if: success()
+    - run: docker build -t hello-world .
