@@ -31,6 +31,7 @@ jobs:
         needs: [build]
         runs-on: ubuntu-latest
         steps:
-        - run: |
-            cd capstone_project/hello-world/
-            docker build -t hello-world .
+        - uses: actions/checkout@v3
+        - name: build container
+          working-directory: capstone_project/hello-world/
+          run: docker build -t hello-world .
